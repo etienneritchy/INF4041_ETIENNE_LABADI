@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     private static Button button_sbm;
     private static Button button_s;
     private static Button button_s2;
-    public static final String BIERS_UPDATE ="com.octip.cours.inf4042_11.BIERS_UPDATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +30,8 @@ public class MainActivity extends AppCompatActivity {
         OnClickButtonListener2();
         OnClickButtonListener3();
         // onOptionsItemSelected();
-        KeyStore localBroadcastManager = null;
-       // localBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.BIERS_UPDATE));
-        IntentFilter intentFilter = new IntentFilter(BIERS_UPDATE);
-       // localBroadcastManager.getInstance(this).registreReceiver(new BierUpdate(), intentFilter);
 
     }
-
-        public class BierUpdate extends BroadcastReceiver {
-            @Override
-            public void onReceive(Context context, Intent intent){
-               // Log.d(TAG,getIntent().getAction());
-            }
-        }
 
 
 
@@ -121,11 +109,12 @@ public class MainActivity extends AppCompatActivity {
 
             switch (item.getItemId()) {
                 case R.id.about:
-                    startActivity(new Intent("org.esiea.labadi.etienne.myapplication.about"));
-                    return true;
-                case R.id.settings:
                     Intent intent = new Intent(this, about.class);
                     startActivity(intent);
+                    return true;
+                case R.id.settings:
+                    Intent intentS = new Intent(this, setting.class);
+                    startActivity(intentS);
                     return true;
                 default:
                     return super.onOptionsItemSelected(item);

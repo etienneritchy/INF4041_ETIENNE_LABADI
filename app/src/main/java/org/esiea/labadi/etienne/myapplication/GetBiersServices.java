@@ -3,6 +3,7 @@ package org.esiea.labadi.etienne.myapplication;
 import android.app.IntentService;
 import android.content.Intent;
 import android.content.Context;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import java.io.File;
@@ -15,60 +16,32 @@ import java.net.URL;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * An {@link IntentService} subclass for handling asynchronous task requests in
- * a service on a separate handler thread.
- * <p>
- * TODO: Customize class - update intent actions, extra parameters and static
- * helper methods.
- */
-/*public class GetBiersServices extends IntentService {
+public class GetBiersServices extends IntentService {
+
 
     public GetBiersServices() {
         super("GetBiersServices");
-    }*/
+    }
 
-    /**
-     * Starts this service to perform action Foo with the given parameters. If
-     * the service is already performing a task this action will be queued.
-     *
-     * @see IntentService
-     */
-    /*// TODO: Customize helper method
-    public static void startActionBier(Context context, String param1, String param2) {
+
+    public static void startActionBier(Context context) {
         Intent intent = new Intent(context, GetBiersServices.class);
         context.startService(intent);
+
+
     }
-*/
 
-   /* @Override
+
+    @Override
     protected void onHandleIntent(Intent intent) {
-        if (intent != null) {
-            final String action = intent.getAction();
-            if (ACTION_FOO.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionFoo(param1, param2);
-            } else if (ACTION_BAZ.equals(action)) {
-                final String param1 = intent.getStringExtra(EXTRA_PARAM1);
-                final String param2 = intent.getStringExtra(EXTRA_PARAM2);
-                handleActionBaz(param1, param2);
-            }
-        }
-    }*/
-
-    /**
-     * Handle action Foo in the provided background thread with the provided
-     * parameters.
-     */
-    /*private void handleActionBier(String param1, String param2) {
-        // TODO: Handle action Foo
-        throw new UnsupportedOperationException("Not yet implemented");
-    }*/
+        handleActionBiers();
+        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.BIERS_UPDATE));
+    }
 
 
 
-   /* private void handleActionBiers() {
+
+    private void handleActionBiers() {
         Log.d(TAG, "thread service name:" + Thread.currentThread().getName());
         URL url = null;
 
@@ -106,7 +79,7 @@ import static android.content.ContentValues.TAG;
             e.printStackTrace();
         }
 
-    }*/
-    //public JSONArray getBiersFromFile()
+    }
 
-//}
+
+}

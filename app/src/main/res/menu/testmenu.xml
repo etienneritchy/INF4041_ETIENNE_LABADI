@@ -8,13 +8,13 @@ app:showAsAction="ifRoom"/>-->
 
 <item
 android:id="@+id/settings"
-android:title="Paramètres"
+android:title="@string/Paramètres"
 android:orderInCategory="2"
 app:showAsAction="never"/>
 
 <item
 android:id="@+id/about"
-android:title="A propos"
+android:title="@string/A_propos"
 android:orderInCategory="3"
 app:showAsAction="never"/>
 

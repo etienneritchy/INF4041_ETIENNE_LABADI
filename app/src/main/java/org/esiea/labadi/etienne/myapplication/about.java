@@ -29,7 +29,7 @@ public class about extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Button is clicked", Toast.LENGTH_LONG).show();
                         Intent intent;
                         try {
-                            intent = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.email");
+                            intent = getPackageManager().getLaunchIntentForPackage("com.android.email");
                             if (intent == null)
                                 throw new PackageManager.NameNotFoundException();
                             intent.addCategory(Intent.CATEGORY_LAUNCHER);

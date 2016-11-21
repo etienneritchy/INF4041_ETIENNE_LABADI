@@ -1,0 +1,15 @@
+<resources>
+    <string name="Paramètres">Settings</string>
+    <string name="A_propos">About</string>
+    <string name="Nous_contacter">Contact us</string>
+    <string name="txtapp">Developped by LABADI Khaled et ETIENNE Ritchy - ESIEA </string>
+    <string name="Mail">E-Mail</string>
+    <string name="txtmail">By mail : retienne@et.esiea.fr \n Klabadi@et.esiea.fr</string>
+    <string name="inscription">Registration</string>
+    <string name="participants">Participants</string>
+    <string name="Liste_des_pays">List of country</string>
+    <string name="Name">Name</string>
+    <string name="INSCRIPTION">REGISTRATION :</string>
+    <string name="valider">Validate</string>
+    <string name="Switch">Notification</string>
+</resources>

@@ -27,46 +27,7 @@ public class inscription extends Activity {
         setContentView(R.layout.activity_inscription);
     }
 
-    private void handleActionBiers() {
-        Log.d(TAG, "thread service name:" + Thread.currentThread().getName());
-        URL url = null;
 
-        try {
-            url = new URL("http://binouze.fabrigli.fr/bieres.json");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("GET");
-            connection.connect();
-         /*   if(HttpURLConnection.HTTP_OK != connection.getResponseCode){
-                copyInputStreamToFile(connection.getInputStream(),
-                new File(getCacheDir(),"bieres.json"));
-                Log.d(TAG,"bieres json download");
-            }*/
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-    catch(Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-    private void copyInputStreamToFile(InputStream in,File file){
-        try{
-            OutputStream out = new FileOutputStream(file);
-        byte[] buf = new byte[1024];
-            int len;
-            while ((len = in.read(buf)) > 0) {
-            out.write(buf,0,len);
-            }
-            out.close();
-            in.close();
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
-
-    }
-    //public JSONArray getBiersFromFile()
 
 
 }

@@ -11,5 +11,5 @@
     <string name="Name">Nom</string>
     <string name="INSCRIPTION">INSCRIPTION :</string>
     <string name="valider">Valider</string>
-    <string name="Switch" />
+    <string name="Switch">Notification</string>
 </resources>

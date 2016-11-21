@@ -43,7 +43,8 @@
             android:name=".GetBiersServices"
             android:exported="false" />
 
-        <activity android:name=".about"></activity>
+        <activity android:name=".about" />
+        <activity android:name=".setting"></activity>
     </application>
 
 </manifest>

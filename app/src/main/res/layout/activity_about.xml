@@ -11,7 +11,7 @@
     tools:context="org.esiea.labadi.etienne.myapplication.about">
 
     <TextView
-        android:text="Par mail : retienne@et.esiea.fr \n Klabadi@et.esiea.fr"
+        android:text="@string/txtmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button3"
@@ -23,7 +23,7 @@
         android:id="@+id/textView3" />
 
     <Button
-        android:text="Mail"
+        android:text="@string/Mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="125dp"
@@ -33,7 +33,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="Cette application a été réalisée par ETIENNE Ritchy et LABADI Khaled - ESIEA "
+        android:text="@string/txtapp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
@@ -43,7 +43,7 @@
         android:layout_alignParentStart="true" />
 
     <TextView
-        android:text="Nous contacter :"
+        android:text="@string/Nous_contacter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"

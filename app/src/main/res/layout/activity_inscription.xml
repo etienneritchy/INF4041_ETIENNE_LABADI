@@ -12,7 +12,7 @@
 
 
     <Button
-        android:text="valider"
+        android:text="@string/valider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button4"
@@ -21,7 +21,7 @@
         android:layout_alignParentEnd="true" />
 
     <TextView
-        android:text="INSCRIPTION :"
+        android:text="@string/INSCRIPTION"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="13dp"
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="@string/Name"
         android:ems="10"
         android:layout_marginTop="35dp"
         android:id="@+id/editText"
