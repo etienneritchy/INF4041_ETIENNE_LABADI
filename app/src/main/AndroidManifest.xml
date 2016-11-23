@@ -45,6 +45,11 @@
 
         <activity android:name=".about" />
         <activity android:name=".setting"></activity>
+        <receiver
+            android:name=".country_activity$BierUpdate"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
     </application>
 
 </manifest>

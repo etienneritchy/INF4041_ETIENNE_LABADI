@@ -1,6 +1,7 @@
 package org.esiea.labadi.etienne.myapplication;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import static org.esiea.labadi.etienne.myapplication.MainActivity.BIERS_UPDATE;
+import static org.esiea.labadi.etienne.myapplication.country_activity.BIERS_UPDATE;
 
 
 public class country_activity extends AppCompatActivity {
@@ -39,13 +40,13 @@ public class country_activity extends AppCompatActivity {
         simpleList.setAdapter(Myadapter);
 
         IntentFilter intentFilter = new IntentFilter(BIERS_UPDATE);
-        LocalBroadcastManager.getInstance(this).registreReceiver(new MainActivity.BierUpdate(),intentFilter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(new country_activity.BierUpdate(),intentFilter);
 
     }
 
     public class BierUpdate extends BroadcastReceiver {
         private Context context;
-        private Builder builder;
+
 
 
         @Override
@@ -54,12 +55,17 @@ public class country_activity extends AppCompatActivity {
         }
 
         public void showNotification() {
-            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
+
+            NotificationCompat.Builder mbuilder = new NotificationCompat.Builder(context)
                             .setContentTitle("My notification")
                             .setContentText("Ca Marche!");
 
+            /*Intent notificationIntent = new Intent(Context);
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mbuilder.setContentIntent(contentIntent);*/
+
             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationManager.notify(0, builder.build());
+            notificationManager.notify(1, mbuilder.build());
 
         }
 

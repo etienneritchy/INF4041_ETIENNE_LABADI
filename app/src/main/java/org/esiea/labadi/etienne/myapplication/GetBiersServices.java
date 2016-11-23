@@ -35,7 +35,7 @@ public class GetBiersServices extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         handleActionBiers();
-        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.BIERS_UPDATE));
+        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(country_activity.BIERS_UPDATE));
     }
 
 
@@ -43,7 +43,7 @@ public class GetBiersServices extends IntentService {
 
     private void handleActionBiers() {
         Log.d(TAG, "thread service name:" + Thread.currentThread().getName());
-        URL url = null;
+        URL url;
 
         try {
             url = new URL("http://binouze.fabrigli.fr/bieres.json");
@@ -55,11 +55,7 @@ public class GetBiersServices extends IntentService {
                         new File(getCacheDir(),"bieres.json"));
                 Log.d(TAG,"bieres json download");
             }
-        }
-        catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
 
