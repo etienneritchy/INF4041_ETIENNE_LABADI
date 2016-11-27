@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -43,6 +44,7 @@ public class GetBiersServices extends IntentService {
 
     private void handleActionBiers() {
         Log.d(TAG, "thread service name:" + Thread.currentThread().getName());
+       // Toast.makeText(getApplicationContext(),"bieres json download", Toast.LENGTH_LONG).show();
         URL url;
 
         try {
@@ -53,7 +55,7 @@ public class GetBiersServices extends IntentService {
             if(HttpURLConnection.HTTP_OK != connection.getResponseCode()){
                 copyInputStreamToFile(connection.getInputStream(),
                         new File(getCacheDir(),"bieres.json"));
-                Log.d(TAG,"bieres json download");
+                Toast.makeText(getApplicationContext(),"bieres json download", Toast.LENGTH_LONG).show();
             }
         } catch(Exception e) {
             e.printStackTrace();

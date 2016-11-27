@@ -44,7 +44,7 @@
             android:exported="false" />
 
         <activity android:name=".about" />
-        <activity android:name=".setting"></activity>
+        <activity android:name=".setting"/>
         <receiver
             android:name=".country_activity$BierUpdate"
             android:enabled="true"

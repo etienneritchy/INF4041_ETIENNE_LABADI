@@ -60,11 +60,14 @@ public class country_activity extends AppCompatActivity {
                             .setContentTitle("My notification")
                             .setContentText("Ca Marche!");
 
-            /*Intent notificationIntent = new Intent(Context);
-            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            mbuilder.setContentIntent(contentIntent);*/
+            mbuilder.setDefaults(NotificationCompat.DEFAULT_SOUND);
+            mbuilder.setAutoCancel(true);
 
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            Intent notificationIntent = new Intent(BIERS_UPDATE);
+            PendingIntent contentIntent = PendingIntent.getActivity(country_activity.this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mbuilder.setContentIntent(contentIntent);
+
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(1, mbuilder.build());
 
         }
