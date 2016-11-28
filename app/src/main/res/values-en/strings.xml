@@ -12,4 +12,8 @@
     <string name="INSCRIPTION">REGISTRATION :</string>
     <string name="valider">Validate</string>
     <string name="Switch">Notification</string>
+
+    <string name="notification">Notification</string>
+    <string name="notification_title">Notification enable</string>
+    <string name="notification_desc">Back to main menu</string>
 </resources>
