@@ -53,7 +53,8 @@ public class GetBiersServices extends IntentService {
             Log.d(TAG, "Thread service name: " + Thread.currentThread().getName());
             URL url = null;
             try {
-                url = new URL("http://binouze.fabrigli.fr/bieres.json");
+                url = new URL("https://gist.githubusercontent.com/keeguon/2310008/raw/bdc2ce1c1e3f28f9cab5b4393c7549f38361be4e/countries.json"
+                );
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.connect();

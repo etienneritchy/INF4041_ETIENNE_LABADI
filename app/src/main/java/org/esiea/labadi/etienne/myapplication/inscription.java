@@ -15,6 +15,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,17 +29,22 @@ import java.io.InputStream;
 
 
 public class inscription extends AppCompatActivity {
+    DataBaseHelper myDb;
 
     public static final String BIERS_UPDATE ="com.octip.cours.inf4042_11.BIERS_UPDATE";
     private RecyclerView rv;
     private Intent intent;
-    private static final String TAG = "inscription";
-//private RecyclerView.Adapter BiersAdapter;
+    private static Button button_V;
+
+    //final EditText editname = (EditText) findViewById(R.id.editText);
+    //private RecyclerView.Adapter BiersAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
-        
+        myDb = new DataBaseHelper(this);
+
         rv = (RecyclerView) findViewById(R.id.rv_bier);
         rv.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
@@ -47,7 +54,40 @@ public class inscription extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter(inscription.BIERS_UPDATE);
         LocalBroadcastManager.getInstance(this).registerReceiver(new BierUpdate(),intentFilter);
 
+        OnClickButtonListener();
     }
+
+    private void OnClickButtonListener() {
+
+
+        //EditText contentET = (EditText) findViewById(R.id.editText);
+        //String string = contentET.getText().toString();
+        final EditText editname = (EditText) findViewById(R.id.editText);
+        button_V = (Button) findViewById(R.id.button4);
+        button_V.setOnClickListener(
+                 new View.OnClickListener(){
+                    @Override
+                    public void onClick (View v) {
+                        String newitem = editname.getText().toString();
+                        boolean isInserted = myDb.insertData(newitem);
+                        if (isInserted == true)
+                            Toast.makeText(inscription.this, "Data Inserted in database", Toast.LENGTH_LONG).show();
+                        else
+                            Toast.makeText(inscription.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                       // Intent intent = new Intent("org.esiea.labadi.etienne.myapplication.MainActivity");
+                     //  startActivity(intent);
+
+                 }
+
+                       // SecondActivity.arrayList.add(newitem);
+                       // SecondActivity.adapter.notifyDataSetChanged();
+
+
+                 }
+
+        );
+    }
+
 
     public JSONArray getBiersFromFile() {
         try {
@@ -75,9 +115,9 @@ public class inscription extends AppCompatActivity {
             if (rv != null) {
                 rv.setAdapter(new BiersAdapter(getBiersFromFile()));
                 ((BiersAdapter) rv.getAdapter()).setBiers(getBiersFromFile());
-                Toast.makeText(getApplicationContext(), "if on recever", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplicationContext(), "if on recever", Toast.LENGTH_LONG).show();
             }
-            Toast.makeText(getApplicationContext(), "onreceiver", Toast.LENGTH_LONG).show();
+           // Toast.makeText(getApplicationContext(), "onreceiver", Toast.LENGTH_LONG).show();
             //showNotification();
             }
 
