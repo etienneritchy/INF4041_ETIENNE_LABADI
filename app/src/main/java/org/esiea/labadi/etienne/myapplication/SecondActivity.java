@@ -1,9 +1,12 @@
 package org.esiea.labadi.etienne.myapplication;
 
+import android.app.AlertDialog;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,7 +18,7 @@ public class SecondActivity extends AppCompatActivity {
     DataBaseHelper myDb;
     ListView vue;
 
-
+    private static Button button5;
     public static ArrayList<String> arrayList;
     public static ArrayAdapter<String> adapter;
 
@@ -47,10 +50,15 @@ public class SecondActivity extends AppCompatActivity {
    //     SecondActivity.adapter.notifyDataSetChanged();
    // }
    public void viewAll() {
+       Button button5 = (Button) findViewById(R.id.button5);
 
+       button5.setOnClickListener(
+               new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
 
                        Cursor res = myDb.getAllData();
-                       if(res.getCount() == 0) {
+                       if (res.getCount() == 0) {
                            // show message
                            Toast.makeText(getApplicationContext(), "nothing", Toast.LENGTH_LONG).show();
                            return;
@@ -58,19 +66,26 @@ public class SecondActivity extends AppCompatActivity {
 
                        StringBuffer buffer = new StringBuffer();
                        while (res.moveToNext()) {
-                           //buffer.append("Id :"+ res.getString(0)+"\n");
-                           buffer.append("Name :"+ res.getString(1)+"\n");
+                           buffer.append("Id :"+ res.getString(0)+"\n");
+                           buffer.append("Name :" + res.getString(1) + "\n");
                        }
 
                        // Show all data
-                      // showMessage("Data",buffer.toString());
-      // SecondActivity.arrayList.add(buffer.name);
-      //     SecondActivity.adapter.notifyDataSetChanged();
+                       showMessage("Data",buffer.toString());
+                       // SecondActivity.arrayList.add(buffer.name);
+                       //     SecondActivity.adapter.notifyDataSetChanged();
 
 
+                   }
+               }
+       );
    }
-
-
-
+    public void showMessage(String title,String Message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
+    }
 
 }
