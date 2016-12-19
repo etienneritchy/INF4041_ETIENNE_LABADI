@@ -42,12 +42,12 @@
 
         <service
             android:name=".GetBiersServices"
-            android:exported="false" />
+            android:exported="false" ></service>
 
         <activity android:name=".about" />
         <activity android:name=".setting"/>
         <receiver
-            android:name=".country_activity$BierUpdate"
+            android:name=".inscription$BierUpdate"
             android:enabled="true"
             android:exported="false" >
         </receiver>

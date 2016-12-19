@@ -1,19 +1,14 @@
 package org.esiea.labadi.etienne.myapplication;
 
-import android.content.BroadcastReceiver;
-import android.content.ClipData;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.*;
-import android.view.View.*;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import java.security.KeyStore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //startService(new Intent(getBaseContext(), GetBiersServices.class));
         OnClickButtonListener();
         OnClickButtonListener2();
         OnClickButtonListener3();
         // onOptionsItemSelected();
-
     }
 
 
@@ -72,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick (View v){
                         Toast.makeText(getApplicationContext(),"Button is clicked", Toast.LENGTH_LONG).show();
-
+                       // stopService(new Intent(getBaseContext(), GetBiersServices.class));
                         Intent intent = new Intent("org.esiea.labadi.etienne.myapplication.SecondActivity");
                         startActivity(intent);
                     }
@@ -81,12 +76,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickButtonListener3(){
+       // startService(new Intent(MainActivity.this, GetBiersServices.class));
         button_s2 = (Button) findViewById(R.id.button2);
         button_s2.setOnClickListener(
                 new View.OnClickListener(){
                     @Override
                     public void onClick (View v){
                         Toast.makeText(getApplicationContext(),"Button is clicked", Toast.LENGTH_LONG).show();
+
                         Intent intent = new Intent("org.esiea.labadi.etienne.myapplication.inscription");
                         startActivity(intent);
                     }
